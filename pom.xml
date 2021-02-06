@@ -30,16 +30,40 @@
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<!-- Spring Boot Starter Security can be use to restrict access to the /actuator
-	    
+	    -->
 		<dependency>
 	        <groupId>org.springframework.boot</groupId>
 	        <artifactId>spring-boot-starter-security</artifactId>
 	        <optional>true</optional>
-	    </dependency>-->
+	    </dependency>
+	    
+	    <dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
+		</dependency>
 	    <!-- web for mvc and rest -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- Add support for spring rest scafolding (optional)
+		it provide bootstrap endpoint http://localhost:8080/employees/2
+		http://localhost:8080/employees
+		where employees is the name of your Entity class Employee 
+		Entity is HandBal = http://localhost:8080/handbals etc
+		this provide both get all, get single, update, save , delete 
+		Remember you have to create a class that extends JPARepository
+		
+		You can change the default pathname to your choice
+		by adding this anotation to the class that extends JPARepository
+		@RepositoryRestResource(path="members")
+		so this http://localhost:8080/employees becomes http://localhost:8080/members
+		
+		learn more www.luv2code.com/spring-boot-props
+		-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
 		</dependency>
 <!-- Spring Boot Actuator add api support for server information/state 
 	    	all actuator endpoint can be access using /actuator
@@ -47,6 +71,12 @@
 		<dependency>
 	        <groupId>org.springframework.boot</groupId>
 	        <artifactId>spring-boot-starter-actuator</artifactId>
+	        <optional>true</optional>
+	    </dependency>
+	    <!-- ThymeLeaf is view template for java - www.thymeleaf.org -->
+	    <dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-thymeleaf</artifactId>
 	        <optional>true</optional>
 	    </dependency>
 	    <!-- Spring DevTool for auto restart -->

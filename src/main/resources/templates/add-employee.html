@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=none">
+		<link rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+		<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+	</head>
+	
+		<body>
+			<!-- www.luv2code.com/thymeleaf-create-form -->
+			<div class="container">
+			
+				<form action="#" th:action="@{/mvc/save}"
+					th:object="${employee}" method="POST" class="form form-vertical col-sm-6">
+					<h4  class="funny">Add New Employee</h4>
+					<input type="hidden" th:field="*{id}"/>
+					<div class="form-group">
+	    				<label for="firstName">First Name</label>
+	    				<input type="text" th:field="*{firstName}" id="firstName" placeholder="Enter First Name" class="form-control">
+					</div>
+					<div class="form-group">
+	    				<label for="lastName">Last Name</label>
+						<input type="text" th:field="*{lastName}" id="lastName" placeholder="Enter Last Name" class="form form-control">
+					</div>
+					<div class="form-group">
+	    				<label for="email">Email Address</label>
+						<input type="email" th:field="*{email}" id="email" placeholder="Enter Email Address" class="form form-control">
+					</div>
+					<button type="submit" class="btn btn-primary col-2">Save</button>
+				</form>
+				<hr/>
+				<a th:href="@{/mvc/list}" class="btn btn-info btn-sm">View All Employee</a>
+			</div>
+		</body>
+</html>

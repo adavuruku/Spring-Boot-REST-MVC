@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=none">
+		<link rel="stylesheet" th:href="@{/css/demo.css}"/>
+		<link rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+		<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+		<!--  <link rel="stylesheet" href="https:stack..."/>-->
+	</head>
+	<body>
+		<div class="container">
+			<!-- @ is a reference to the contextpath - thats the root i.e localhost:8080 -->
+			<h4  class="funny">List Of All Employee</h4>
+			<h4><a th:href="@{/mvc/showFormForAdd}" class="btn btn-primary btn-sm">
+				Add Employee
+			</a></h4>
+			<table border="1" class="table table-bordered table-stripped">
+				<thead class="thead-dark">
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email Address</th>
+						<th colspan="2">Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="tempEmployee : ${employees}">
+						<td th:text="${tempEmployee.firstName}"/>
+						<td th:text="${tempEmployee.lastName}"/>
+						<td th:text="${tempEmployee.email}"/>
+						<td>
+							<a th:href="@{/mvc/showFormForUpdate(employeeId=${tempEmployee.id})}" class="btn btn-info btn-sm">
+								Update
+							</a>
+						</td>
+						<td>
+							<a th:href="@{/mvc/delete(employeeId=${tempEmployee.id})}" class="btn btn-danger btn-sm"
+							onclick="if ( !(confirm('Are You Sure You want to Delete Employee?'))) return false">
+								Delete
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- Add a logout button -->
+			<form action="#" th:action="@{/logout}" 
+					   method="POST">
+					   <input type="submit" value="Logout" class="btn btn-outline-primary mt-2 btn-sm" />
+			</form>
+		</div>
+	</body>
+</html>

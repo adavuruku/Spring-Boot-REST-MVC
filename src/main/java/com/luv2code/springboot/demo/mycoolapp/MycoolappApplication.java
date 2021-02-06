@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /*@SpringBootApplication(scanBasePackageClasses = {
 		"com.luv2code.springboot.demo.mycoolapp",
-		"com.sgme.iot.utils"
+		"com.sgme.iot.utils" 
 })*/ //you can specify different package to scan from else it uses the package and sub package of this class
 @SpringBootApplication //this annotation compose auto-config, component-scan, configuration etc
 public class MycoolappApplication {
